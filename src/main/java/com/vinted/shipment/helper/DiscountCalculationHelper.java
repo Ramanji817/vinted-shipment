@@ -13,13 +13,12 @@ public class DiscountCalculationHelper {
 	private BigDecimal discount = BigDecimal.ZERO;
 	private int lpCount = 0;
 
-	public void validateTranstionByRules(String transaction) {
+	public String validateTranstionByRules(String transaction) {
 		String[] transactionDetails = transaction.split("\\s+");
 		if (!validateShipmentType(transactionDetails)) {
 			transaction = transaction + " Ignored";
 		}
-		transaction = appendShipmentDiscount(transaction);
-		System.out.println(transaction);
+		return appendShipmentDiscount(transaction);		
 	}
 
 	private String appendShipmentDiscount(String transaction) {
